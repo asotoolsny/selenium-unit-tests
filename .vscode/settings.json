@@ -8,5 +8,6 @@
         "test_*.py"
     ],
     "python.unitTest.pyTestEnabled": false,
-    "python.unitTest.nosetestsEnabled": false
+    "python.unitTest.nosetestsEnabled": false,
+    "python.linting.pylintEnabled": true
 }
