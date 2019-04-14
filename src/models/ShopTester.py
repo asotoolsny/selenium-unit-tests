@@ -17,6 +17,8 @@ class ShopTester(WebDriverContainer):
         return HomePage(self._driver)
 
     def search_and_submit(self, query):
+        """Loads home page, finds search box, types a query and hits enter"""
         self.load_url(self._home_page_url)
-        self.keyboard_type(_search_textbox_selector, query)
+        self.keyboard_type_submit(self._search_textbox_selector, query)
+        return SearchResults(self._driver)
 

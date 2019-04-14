@@ -41,7 +41,7 @@ class SearchResultsModel(WebDriverContainer):
         super().__init__(driver)
 
     @property
-    def section_links(self):
+    def section_links_search_results(self):
         side_bar_container_locator = self.try_find_elements(
             self.__side_bar_container_selector, 20)
 
@@ -53,6 +53,6 @@ class SearchResults(WebDriverContainer):
         self.__page__ = SearchResultsModel(driver)
 
     @property
-    def section_links(self):
+    def section_links_search_results(self):
         """Will return web elements of search section"""
-        return self.__page__.section_links
+        return self.__page__.section_links_search_results

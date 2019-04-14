@@ -18,8 +18,10 @@ class WebDriverContainer():
     def load_url(self, url: str):
         self._driver.get(url)
 
-    def keyboard_type(self, element, query):
-        element.send_keys(query)
+    def keyboard_type_submit(self, element, query: str):
+        result = self.try_find_element(element, 20)
+        result.send_keys(query)
+        result.send_keys(Keys.RETURN)
 
     def try_find_element(self, by_query, timeout=10):
         """will try to find element or will wait until it appeared on the page."""
