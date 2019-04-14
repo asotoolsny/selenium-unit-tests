@@ -1,6 +1,6 @@
 from selenium import webdriver
 from selenium.common.exceptions import *
-from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 
@@ -19,19 +19,19 @@ class WebDriverContainer():
 
     def try_find_element(self, by_query, timeout=10):
         """will try to find element or will wait until it appeared on the page."""
-        return self.__wait_until(self._driver, expected_conditions.presence_of_element_located(by_query), timeout)
+        return self.__wait_until(self._driver, EC.presence_of_element_located(by_query), timeout)
 
     def try_find_elements(self, by_query, timeout=10):
         """will try find all elements or will wait until they appeared on the page."""
-        return self.__wait_until(self._driver, expected_conditions.presence_of_all_elements_located(by_query), timeout)
+        return self.__wait_until(self._driver, EC.presence_of_all_elements_located(by_query), timeout)
 
     def try_find_element_of(self, parent, by_query, timeout=10):
         """will try find element or will wait until it appeared on the page."""
-        return self.__wait_until(parent, expected_conditions.presence_of_element_located(by_query), timeout)
+        return self.__wait_until(parent, EC.presence_of_element_located(by_query), timeout)
 
     def try_find_elements_of(self, parent, by_query, timeout=10):
         """will try find all elements or will wait until they appeared on the page."""
-        return self.__wait_until(parent, expected_conditions.presence_of_all_elements_located(by_query), timeout)
+        return self.__wait_until(parent, EC.presence_of_all_elements_located(by_query), timeout)
 
     def __wait_until(self, container, condition, timeout=10):
         waiter = WebDriverWait(container,
