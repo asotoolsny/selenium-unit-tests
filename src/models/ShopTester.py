@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
-from .HomePage import HomePage
+from .HomePage import HomePage, SearchResults
 from .WebDriverContainer import WebDriverContainer
 
 
@@ -15,3 +15,8 @@ class ShopTester(WebDriverContainer):
     def load_home_page(self):
         self.load_url(self._home_page_url)
         return HomePage(self._driver)
+
+    def search_and_submit(self, query):
+        self.load_url(self._home_page_url)
+        self.keyboard_type(_search_textbox_selector, query)
+

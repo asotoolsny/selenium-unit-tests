@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.common.exceptions import *
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.keys import Keys
 
 
 class WebDriverContainer():
@@ -16,6 +17,9 @@ class WebDriverContainer():
 
     def load_url(self, url: str):
         self._driver.get(url)
+
+    def keyboard_type(self, element, query):
+        element.send_keys(query)
 
     def try_find_element(self, by_query, timeout=10):
         """will try to find element or will wait until it appeared on the page."""
